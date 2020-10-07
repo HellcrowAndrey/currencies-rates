@@ -2,7 +2,6 @@ package com.github.currencies.rates.controllers;
 
 import com.github.currencies.rates.payload.CurrentRates;
 import com.github.currencies.rates.payload.SpecificRate;
-import retrofit2.Call;
 
 import java.util.Optional;
 
