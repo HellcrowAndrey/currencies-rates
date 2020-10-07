@@ -9,6 +9,10 @@ repositories {
     mavenCentral()
 }
 
+group = 'com.github.currencies.rates'
+version = '0.0.1'
+sourceCompatibility = '11'
+
 dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
