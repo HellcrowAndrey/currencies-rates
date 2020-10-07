@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -75,4 +76,31 @@ public class SpecificRate {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpecificRate that = (SpecificRate) o;
+        return Objects.equals(time, that.time) &&
+                Objects.equals(assetIdBase, that.assetIdBase) &&
+                Objects.equals(assetIdQuote, that.assetIdQuote) &&
+                Objects.equals(rate, that.rate) &&
+                Objects.equals(additionalProperties, that.additionalProperties);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(time, assetIdBase, assetIdQuote, rate, additionalProperties);
+    }
+
+    @Override
+    public String toString() {
+        return "SpecificRate{" +
+                "time='" + time + '\'' +
+                ", assetIdBase='" + assetIdBase + '\'' +
+                ", assetIdQuote='" + assetIdQuote + '\'' +
+                ", rate=" + rate +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }
