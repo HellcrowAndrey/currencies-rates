@@ -2,7 +2,7 @@ package com.github.currencies.rates.controllers.impl;
 
 import com.github.currencies.rates.config.AppConfig;
 import com.github.currencies.rates.controllers.IExchangeController;
-import com.github.currencies.rates.payload.CurrentRates;
+import com.github.currencies.rates.payload.RatesPayload;
 import com.github.currencies.rates.payload.SpecificRate;
 import com.github.currencies.rates.services.IExchangeService;
 import org.slf4j.Logger;
@@ -24,11 +24,11 @@ public class ExchangeController implements IExchangeController {
     }
 
     @Override
-    public Optional<CurrentRates> findRates(String key, String name, Boolean invert) {
+    public Optional<RatesPayload> findRates(String key, String name, Boolean invert) {
         IExchangeService service = AppConfig.getInstance().exchangeService(this.url);
-        Call<CurrentRates> call = service.findRates(key, name, invert);
+        Call<RatesPayload> call = service.findRates(key, name, invert);
         try {
-            Response<CurrentRates> response = call.execute();
+            Response<RatesPayload> response = call.execute();
             if (response.isSuccessful()) {
                 return Optional.ofNullable(response.body());
             }
