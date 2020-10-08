@@ -12,13 +12,13 @@ import java.util.Objects;
         "asset_id_base",
         "rates"
 })
-public class CurrentRates {
+public class RatesPayload {
 
     @JsonProperty("asset_id_base")
     private String assetIdBase;
 
     @JsonProperty("rates")
-    private List<Rate> rates = null;
+    private List<RatePayload> rates = null;
 
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<>();
@@ -28,19 +28,9 @@ public class CurrentRates {
         return assetIdBase;
     }
 
-    @JsonProperty("asset_id_base")
-    public void setAssetIdBase(String assetIdBase) {
-        this.assetIdBase = assetIdBase;
-    }
-
     @JsonProperty("rates")
-    public List<Rate> getRates() {
+    public List<RatePayload> getRates() {
         return rates;
-    }
-
-    @JsonProperty("rates")
-    public void setRates(List<Rate> rates) {
-        this.rates = rates;
     }
 
     @JsonAnyGetter
@@ -48,16 +38,11 @@ public class CurrentRates {
         return this.additionalProperties;
     }
 
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CurrentRates that = (CurrentRates) o;
+        RatesPayload that = (RatesPayload) o;
         return Objects.equals(assetIdBase, that.assetIdBase) &&
                 Objects.equals(rates, that.rates) &&
                 Objects.equals(additionalProperties, that.additionalProperties);

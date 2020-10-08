@@ -12,14 +12,17 @@ import java.util.Objects;
         "asset_id_quote",
         "rate"
 })
-public class Rate {
+public class RatePayload {
 
     @JsonProperty("time")
     private String time;
+
     @JsonProperty("asset_id_quote")
     private String assetIdQuote;
+
     @JsonProperty("rate")
     private Double rate;
+
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -28,19 +31,9 @@ public class Rate {
         return time;
     }
 
-    @JsonProperty("time")
-    public void setTime(String time) {
-        this.time = time;
-    }
-
     @JsonProperty("asset_id_quote")
     public String getAssetIdQuote() {
         return assetIdQuote;
-    }
-
-    @JsonProperty("asset_id_quote")
-    public void setAssetIdQuote(String assetIdQuote) {
-        this.assetIdQuote = assetIdQuote;
     }
 
     @JsonProperty("rate")
@@ -48,26 +41,16 @@ public class Rate {
         return rate;
     }
 
-    @JsonProperty("rate")
-    public void setRate(Double rate) {
-        this.rate = rate;
-    }
-
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Rate rate1 = (Rate) o;
+        RatePayload rate1 = (RatePayload) o;
         return Objects.equals(time, rate1.time) &&
                 Objects.equals(assetIdQuote, rate1.assetIdQuote) &&
                 Objects.equals(rate, rate1.rate) &&
