@@ -3,14 +3,14 @@ plugins {
 }
 
 group 'org.example'
-version '1.0-SNAPSHOT'
+version '0.0.2'
 
 repositories {
     mavenCentral()
 }
 
 group = 'com.github.currencies.rates'
-version = '0.0.1'
+version = '0.0.2'
 sourceCompatibility = '11'
 
 dependencies {
