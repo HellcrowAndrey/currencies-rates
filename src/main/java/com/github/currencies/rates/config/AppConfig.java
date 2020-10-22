@@ -1,6 +1,6 @@
 package com.github.currencies.rates.config;
 
-import com.github.currencies.rates.services.IExchangeService;
+import com.github.currencies.rates.repository.ExchangeRepository;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
@@ -32,9 +32,9 @@ public class AppConfig {
         return retrofit;
     }
 
-    public IExchangeService exchangeService(String url) {
+    public ExchangeRepository exchangeService(String url) {
         Retrofit retrofit = getRetrofit(url);
-        return retrofit.create(IExchangeService.class);
+        return retrofit.create(ExchangeRepository.class);
     }
 
 }
